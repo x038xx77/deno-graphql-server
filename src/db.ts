@@ -2,13 +2,13 @@
 import { PrismaClient, config } from "../libPackage.ts";
 
 
-const { DATABASE_URL } = config({ safe: true });
+const { DATABASE_URL } = config({ safe: true }); //only Debug
 
 
 export const prisma = new PrismaClient({
   datasources: {
     db: {
-      url: DATABASE_URL,
+      url: Deno.env.get("DATABASE_URL"), //from prod
     },
   },
 });
