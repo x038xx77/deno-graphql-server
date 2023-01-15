@@ -1,7 +1,7 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["deno"]
-  output = "../generated/client"
+  output          = "../generated/client"
 }
 
 datasource db {
@@ -9,8 +9,257 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Message {
+  id        Int      @id @default(autoincrement())
+  body      String
+  createdAt DateTime @default(now())
+  userId    String
+  User      User     @relation(fields: [userId], references: [id])
+}
+
+model Account {
+  id                 Int      @id @default(autoincrement())
+  compoundId         String   @unique @map("compound_id")
+  userId             String   @map("profile_id")
+  providerType       String   @map("provider_type")
+  providerId         String   @map("provider_id")
+  providerAccountId  String   @map("provider_account_id")
+  refreshToken       String   @map("refresh_token")
+  accessToken        String   @map("access_token")
+  accessTokenExpires DateTime @map("access_token_expires")
+  createdAt          DateTime @default(now()) @map("created_at")
+  updatedAt          DateTime @default(now()) @map("updated_at")
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([providerId, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           Int      @id @default(autoincrement())
+  userId       String   @map("user_id")
+  expires      DateTime
+  sessionToken String   @unique @map("session_token")
+  accessToken  String   @unique @map("access_token")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @default(now()) @map("updated_at")
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model City {
+  id        Int      @id @default(autoincrement())
+  name      String
+  addressId Int?
+  Address   Address? @relation(fields: [addressId], references: [id])
+}
+
+model Address {
+  id         Int       @id @default(autoincrement())
+  zip        Int
+  deliveryId Int?
+  Delivery   Delivery? @relation(fields: [deliveryId], references: [id])
+  city       City[]
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String
+  productId String?
+  products  Product[]
+}
+
+model Product {
+  id          String     @id @default(uuid())
+  title       String
+  description String
+  image       String
+  sku         String     @unique
+  quantity    Int
+  price       Float
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @default(now())
+  userId      String?    @map("user_id")
+  user        User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  categories  Category[]
+  orders      Order[]
+}
+
+model Delivery {
+  id      Int       @id @default(autoincrement())
+  title   String
+  address Address[]
+  orders  Order[]
+}
+
+model VerificationRequest {
+  id               Int      @id @default(autoincrement())
+  identifier       String
+  token            String   @unique
+  expires          DateTime
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @default(now()) @map("updated_at")
+  userId           String   @map("user_id")
+  userVerification User     @relation(fields: [userId], references: [id])
+}
+
+model product_category {
+  id   Int    @id @default(autoincrement())
+  name String
+}
+
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id                String                @id @default(uuid())
+  email             String                @unique
+  password          String
+  username          String?
+  firstName         String?               @map("first_name")
+  lastName          String?               @map("last_name")
+  phoneUser         String?               @map("phone_user")
+  trademark         String?
+  localeUser        String?               @map("locale_user")
+  imageUrlUser      String?               @map("image_url_user")
+  authIsTelegram    Boolean               @default(false) @map("auth_is_telegram")
+  authIsYandex      Boolean               @default(false) @map("auth_is_yandex")
+  authIsGoogle      Boolean               @default(false) @map("auth_is_google")
+  role              String                @default("buyer")
+  bio               String?
+  createdAt         DateTime              @default(now())
+  updatedAt         DateTime              @default(now()) @map("updated_at")
+  emailDateVerified DateTime?             @map("email_date_verified")
+  messages          Message[]
+  orders            Order[]
+  products          Product[]
+  verifiedUsers     VerificationRequest[]
+  accounts          Account[]
+  sessions          Session[]
+}
+
+model ProductsProduct {
+  id       String                  @id @default(uuid())
+  count    Int
+  next     Int
+  previous Int
+  results  ProductsProductResult[]
+}
+
+model ProductsProductResult {
+  id                String            @id @default(uuid())
+  tags              Tags[]
+  author            AuthorProduct?    @relation(fields: [authorProductId], references: [id])
+  userId            String?           @map("user_id")
+  name              String?
+  image             String?
+  text              String?
+  price_product     Int?
+  taxation          String?
+  tax               String?
+  authorProductId   String?
+  productsProductId String?
+  productsProduct   ProductsProduct[]
+}
+
+model Order {
+  id           Int       @id @default(autoincrement())
+  order_id     String    @default(uuid())
+  purchaseDate DateTime  @default(now())
+  description  String
+  userId       String    @map("user_id")
+  productId    String
+  deliveryId   Int?
+  Delivery     Delivery? @relation(fields: [deliveryId], references: [id])
+  products     Product[]
+  customer     User?     @relation(fields: [userId], references: [id])
+}
+
+model products_product_category {
+  id          Int @id @default(autoincrement())
+  product_id  Int
+  category_id Int
+}
+
+model products_tag {
+  id    Int    @id @default(autoincrement())
+  name  String
+  color String
+  slug  String
+  key   Int?
+}
+
+model products_product_tags {
+  id         Int @id @default(autoincrement())
+  producy_id Int
+  tag_id     Int
+}
+
+model ProductsProductWhoLikesIt {
+  id         Int @id @default(autoincrement())
+  product_id Int
+  user_id    Int
+}
+
+model payments_productbuyers {
+  id            String  @id @default(uuid())
+  amount        Int
+  backUrl       String?
+  companyName   String?
+  details       String?
+  emailReq      String?
+  errorCode     String?
+  merchantEmail String?
+  merchantName  String?
+  message       String?
+  orderId       String
+  paymentId     String
+  phoneReq      String?
+  success       String?
+  tranDate      String?
+}
+
+model AuthorProduct {
+  id                    String                  @id @default(uuid())
+  email                 String
+  username              String?
+  first_name            String?
+  last_name             String?
+  is_subscribed         Boolean?
+  phone_user            String?
+  trademark             String?
+  locale_user           String?
+  image_url_user        String?
+  image_file_user       String?
+  auth_is_telegram      Boolean
+  auth_is_yandex        Boolean
+  auth_is_google        Boolean
+  is_admin_constructor  Boolean
+  ProductsProductResult ProductsProductResult[]
+}
+
+model Tags {
+  id                      Int                     @id @default(autoincrement())
+  name                    String?
+  color                   String?
+  slug                    String?
+  ProductsProductResult   ProductsProductResult[]
+  productsProductResultId Int?
+}
+
+model UserFavoritesProduct {
+  id          Int     @id @default(autoincrement())
+  is_favorite Boolean @default(false)
+  userId      String
+  productId   String
+
+  @@unique([userId, productId])
+}
+
+model Vote {
+  id           Int     @id @default(autoincrement())
+  count_votes  Int     @default(0)
+  is_vote_user Boolean @default(false)
+  productId    String?
+  userId       String?
+
+  @@unique([userId, productId])
 }
