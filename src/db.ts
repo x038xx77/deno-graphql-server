@@ -9,7 +9,7 @@ console.log("ENV", env["DATABASE_URL"]);
 export const prisma = new PrismaClient({
   datasources: {
     db: {
-      url: Deno.env["DATABASE_URL"], //from prod
+      url: Deno.env.DATABASE_URL, //from prod
     },
   },
 });
