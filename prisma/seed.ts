@@ -1,11 +1,11 @@
-import { Prisma, PrismaClient, config } from "../libPackage.ts";
+import { Prisma, PrismaClient } from "../libPackage.ts";
 
-const envVars = await config();
+// const envVars = await config();
 
 const prisma = new PrismaClient({
   datasources: {
     db: {
-      url: envVars.DATABASE_URL,
+      url: Deno.env.get("DATABASE_URL"),
     },
   },
 });

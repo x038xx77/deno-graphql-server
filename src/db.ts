@@ -1,8 +1,8 @@
 
-import { PrismaClient, config } from "../libPackage.ts";
+import { PrismaClient } from "../libPackage.ts";
 
 
-const { DATABASE_URL } = config({ safe: true }); //only Debug
+// const { DATABASE_URL } = config({ safe: true }); //only Debug
 // const env = await config({ safe: true })
 // console.log("ENV", env["DATABASE_URL"]);
 
