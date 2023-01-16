@@ -1,7 +1,7 @@
     //@ts-ignore
     export { serve } from "https://deno.land/std@0.172.0/http/mod.ts";
-    import { type Request as typeRequest } from "https://deno.land/std@0.172.0/http/mod.ts";
-    export {typeRequest }
+    // import { type Request as typeRequest } from "https://deno.land/std@0.172.0/http/mod.ts";
+    // export {typeRequest }
     import { type Response as typeResponse } from "https://deno.land/x/serve@1.0.5/deps.ts";
     export { typeResponse }
 

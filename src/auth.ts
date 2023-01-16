@@ -1,12 +1,12 @@
 // deno-lint-ignore-file
-import {  typeRequest, jwtVerify } from '../libPackage.ts'
+import {  jwtVerify } from '../libPackage.ts'
 import { PrismaClient, User } from '../generated/client/deno/edge.ts'
 import { ACCESS_TOKEN_APP_SECRET } from './constants.ts'
 import { prisma } from "./db.ts";
 
 
 export async function authenticateUser(
-  request: typeRequest
+  request: Request
 ):Promise<User|null> {
 
   // console.log("REC,",request.headers.get("authorization")?.split(" "))
