@@ -317,25 +317,8 @@ export const schema = createSchema({
           console.log("Err: ", err);
         }
 
-        const userUpdate = await context.prisma.user.update({
-          where: {
-            email: args.input.email,
-          },
-          data: {
-            accounts: {
-              create: {
-                compoundId: args.input.email,
-                refreshToken: null,
-                accessToken: null,
-                accessTokenExpires: null,
-                providerType: args.input.email,
-                providerId: args.input.email,
-                providerAccountId: args.input.email,
-              },
-            },
-          },
-        });
-        return { token, user: userUpdate };
+       
+        return { token: await token, user };
       },
       // end SignUp mutation
 
