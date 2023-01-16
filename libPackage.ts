@@ -16,5 +16,14 @@
      //@ts-ignore
     export { SchemaBuilder, RelayPothosPlugin }
      //@ts-ignore
+     import { getNumericDate,
+      create as jwtCreate,
+      decode as jwtDecode,
+      verify as jwtVerify,} from "https://deno.land/x/djwt@v2.0/mod.ts";
+    export { getNumericDate, jwtCreate, jwtDecode, jwtVerify }
+//@ts-ignore
+import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts";
+export {bcrypt}
+
     // export { config } from "https://deno.land/x/dotenv/mod.ts";
 
