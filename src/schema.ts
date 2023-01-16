@@ -87,10 +87,10 @@ export const schema = createSchema({
       }
 
       type Account {
-        accessToken: String!
-        accessTokenExpires: String!
+        accessToken: String
+        accessTokenExpires: String
         accountedBy: User!
-        refreshToken: String!
+        refreshToken: String
       }
       
       type ProductsResponseApi {
@@ -331,7 +331,7 @@ export const schema = createSchema({
         context: GraphQLContext
       ) {
 
-        const user:User = await context.prisma.user.findUnique({
+        const user:User|null = await context.prisma.user.findUnique({
           where: { email: args.input.email }
         })
 
