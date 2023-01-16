@@ -1,15 +1,21 @@
-import { Context } from '../libPackage.ts'
-import { prisma } from './db.ts';
-import {authenticateUser} from './auth.ts'
-import { PrismaClient, User } from '../generated/client/deno/index.d.ts';
+import { PrismaClient, User } from '../generated/client/deno/edge.ts'
 
-export async function authUserContext(request:any):Promise<User|null> {
-  return await authenticateUser(request)
+import { authenticateUser } from './auth.ts'
+import { prisma } from './db.ts'
+ const db:any =prisma
+export type GraphQLContext = {
+  prisma: PrismaClient
+  currentUser: null | User
 }
+ 
+export async function authContext(
+  initialContext: any
+): Promise<GraphQLContext> {
 
-
-
-export const context = (ctxRequest: Context) => ({
-    currentUser: authUserContext(ctxRequest.request),
-    prisma: prisma
-  });
+  const authUser  = await authenticateUser(db, initialContext.request ) 
+  return {
+    prisma:db as any,
+    currentUser: authUser,
+    
+  }
+}

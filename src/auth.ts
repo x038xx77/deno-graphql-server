@@ -1,30 +1,36 @@
 // deno-lint-ignore-file
-import {  jwtVerify } from '../libPackage.ts'
+// import {  jwtVerify } from '../libPackage.ts'
+// import { PrismaClient, User } from '../generated/client/deno/edge.ts'
+// import { ACCESS_TOKEN_APP_SECRET } from './constants.ts'
+// import { prisma } from "./db.ts";
 import { PrismaClient, User } from '../generated/client/deno/edge.ts'
-import { ACCESS_TOKEN_APP_SECRET } from './constants.ts'
-import { prisma } from "./db.ts";
+
+import {  jwtVerify } from '../libPackage.ts'
+
+import { ACCESS_TOKEN_APP_SECRET, APP_SECRET_EXPIRATION_DATATIME } from './constants.ts'
+
 
 
 export async function authenticateUser(
-  request: Request
-):Promise<User|null> {
+  prisma: PrismaClient,
+  request: any
+): Promise<User | null> {
+  const headerToken = request.headers.get('authorization');
+ 
 
-  // console.log("REC,",request.headers.get("authorization")?.split(" "))
-  const headerToken:string|null = request.headers.get('authorization');
-   
   if (headerToken !== null && headerToken !== undefined) {
-    const token:string = headerToken.split(' ')[1];
-    let tokenPayload: any;
+    const token = headerToken.split(' ')[1];
+    let tokenPayload: any = { email: "ya@ho.ho" };
     try {
-      tokenPayload = await jwtVerify(token, ACCESS_TOKEN_APP_SECRET!, "HS512");
+      tokenPayload = jwtVerify(token, ACCESS_TOKEN_APP_SECRET!, "HS512") as any;
     } catch { console.log('Invalid token'); }
 
-    let userVerify:any = null;
+    let userVerify = null;
     try {
-      const userIdVerify:any = tokenPayload.userId;
+      let userIdVerify = tokenPayload.userId;
       userVerify = await prisma.user.findUnique({ where: { id: userIdVerify } });
-
-    } catch (error){ console.log("Error userIdVerify", error) }
+    } catch {
+  }
     return userVerify;
   }
   return null;

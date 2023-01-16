@@ -1,5 +1,5 @@
 import { createSchema, jwtCreate, bcrypt } from "../libPackage.ts";
-import { context } from './context.ts'
+import { GraphQLContext } from './context.ts'
 import {PrismaClient, User } from "../generated/client/deno/edge.ts";
 
 import {
@@ -9,10 +9,6 @@ import {
   REFRESH_TOKEN_SECRET_EXPIRATION_DATATIME
 } from './constants.ts';
 
-export type GraphQLContext = {
-  prisma: PrismaClient
-  currentUser: null | User
-}
 
 export const schema = createSchema({
   typeDefs: /* GraphQL */ `
