@@ -27,7 +27,7 @@
       verify as jwtVerify,} from "https://deno.land/x/djwt@v2.0/mod.ts";
     export { getNumericDate, jwtCreate, jwtDecode, jwtVerify }
 
-import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts";
+import * as bcrypt from "https://deno.land/x/bcrypt@v0.3.0/mod.ts";
 export { bcrypt }
 
 
