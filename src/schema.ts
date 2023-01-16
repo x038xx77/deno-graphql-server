@@ -172,7 +172,7 @@ export const schema = createSchema({
         count_votes: ID!
         is_vote_user: Boolean
         productId: String
-        userId: String
+        users: [User!]
       }
       
       type UserFavoritesProduct {
@@ -242,9 +242,10 @@ export const schema = createSchema({
               productId: productId,
             },
           });
+         
           const result = {
             count_votes: count_votes.length,
-            userId: "anonymous",
+            users: count_votes,
             productId: productId,
             is_vote_user: true //for_disabled_button
           }
@@ -270,7 +271,7 @@ export const schema = createSchema({
 
           const result = {
             count_votes: count_votes.length,
-            userId: userId,
+            users: count_votes,
             productId: productId,
             is_vote_user: result_check_is_vote_user
           }
@@ -434,6 +435,9 @@ export const schema = createSchema({
           throw new Error(`Already voted for product: ${args.input.productId}`)
         } else {
 
+
+         if (context.currentUser !== null){
+
           vote_user_product = await context.prisma.vote.create({
             data: {
               userId: userId,
@@ -442,7 +446,7 @@ export const schema = createSchema({
             }
           })
         }
-
+      }
         const result = {
           count_votes: vote_user_product.count_votes,
           is_vote_user: vote_user_product.is_vote_user,
