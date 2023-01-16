@@ -1,5 +1,6 @@
 import { createSchema, jwtCreate, bcrypt } from "../libPackage.ts";
-import { GraphQLContext } from './context.ts'
+import { context } from './context.ts'
+import {PrismaClient, User } from "../generated/client/deno/edge.ts";
 
 import {
   ACCESS_TOKEN_APP_SECRET,
@@ -8,23 +9,9 @@ import {
   REFRESH_TOKEN_SECRET_EXPIRATION_DATATIME
 } from './constants.ts';
 
-
-interface User {
-  accounts: any
-  email: String
-  first_name: String
-  id: String
-  last_name: String
-  messages: any
-  password: String
-  phone_user: String
-  products: any
-  username: String
-}
-
-interface VoteInput {
-  productId: String
-  userId: String
+export type GraphQLContext = {
+  prisma: PrismaClient
+  currentUser: null | User
 }
 
 export const schema = createSchema({
@@ -343,7 +330,8 @@ export const schema = createSchema({
         args: { input: { email: string; password: string; } },
         context: GraphQLContext
       ) {
-        const user = await context.prisma.user.findUnique({
+
+        const user:User = await context.prisma.user.findUnique({
           where: { email: args.input.email }
         })
 
@@ -355,13 +343,15 @@ export const schema = createSchema({
         if (!valid) {
           throw new Error('Invalid password')
         }
-
         let jwtToken: any;
         try {
           jwtToken = await jwtCreate({ alg: "HS512", typ: "JWT" }, { userId: user?.id }, ACCESS_TOKEN_APP_SECRET!);
         } catch (err) { console.log("Err: ", err) }
+       
 
-        return { user, token: jwtToken }
+        console.log("Logit====>>>>",user, jwtToken)
+
+        return { user, token:jwtToken, jwtToken }
       },
       // End Login
 

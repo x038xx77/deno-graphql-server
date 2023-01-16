@@ -1,4 +1,4 @@
-import { serve, createYoga, createSchema } from "../libPackage.ts";
+import { serve, createYoga } from "../libPackage.ts";
 import { schema } from "./schema.ts";
 import { context } from "./context.ts";
 

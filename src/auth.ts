@@ -16,7 +16,7 @@ export async function authenticateUser(
     const token:string = headerToken.split(' ')[1];
     let tokenPayload: any;
     try {
-      tokenPayload = await jwtVerify(token, ACCESS_TOKEN_APP_SECRET, "HS512");
+      tokenPayload = await jwtVerify(token, ACCESS_TOKEN_APP_SECRET!, "HS512");
     } catch { console.log('Invalid token'); }
 
     let userVerify:any = null;
