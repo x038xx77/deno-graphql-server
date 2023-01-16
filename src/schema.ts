@@ -299,7 +299,7 @@ export const schema = createSchema({
         }
         let password: any;
         try {
-          password = bcrypt.hash(args.input.password);
+          password = bcrypt.hashSync(args.input.password);
         } catch (err) {
           console.log("Errors: ", err);
         }
@@ -355,7 +355,7 @@ export const schema = createSchema({
 
         let valid: any;
         try {
-          valid = bcrypt.compare(args.input.password, user.password);
+          valid = bcrypt.compareSync(args.input.password, user.password);
         } catch (err) {
           console.log("Errors: ", err);
         }
