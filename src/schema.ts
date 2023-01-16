@@ -289,8 +289,11 @@ export const schema = createSchema({
         if (checkUniqueUser) {
           throw new Error('Email exist, change email!')
         }
+        let password: any;
+try{
+  password = await bcrypt.hash(args.input.password)
 
-        const password = await bcrypt.hash(args.input.password)
+}catch(err){console.log("Errors: ", err)}
 
         const user: User = await context.prisma.user.create({
           data: { ...args.input, password }
@@ -338,8 +341,11 @@ export const schema = createSchema({
         if (!user) {
           throw new Error('No such email user found')
         }
-        const valid = await bcrypt.compare(args.input.password, user.password)
 
+let valid:any;
+        try{
+         valid = await bcrypt.compare(args.input.password, user.password)
+      }catch(err){console.log("Errors: ", err)}
         if (!valid) {
           throw new Error('Invalid password')
         }

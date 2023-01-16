@@ -28,7 +28,7 @@
     export { getNumericDate, jwtCreate, jwtDecode, jwtVerify }
 
 import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts";
-export {bcrypt}
+export { bcrypt }
 
 
     // export { config } from "https://deno.land/x/dotenv/mod.ts";
