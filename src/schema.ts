@@ -1,18 +1,13 @@
-import { createSchema, jwtCreate, jwtVerify, bcrypt } from "../libPackage.ts";
+import { createSchema, jwtCreate, bcrypt } from "../libPackage.ts";
 import { GraphQLContext } from './context.ts'
 
-// import { config } from "https://deno.land/x/dotenv/mod.ts"; //only Debug
-// const {
-//   ACCESS_TOKEN_APP_SECRET,
-//   APP_SECRET_EXPIRATION_DATATIME,
-//   REFRESH_TOKEN_SECRET,
-//   REFRESH_TOKEN_SECRET_EXPIRATION_DATATIME
-// } = config({ safe: true }); //only Debug
+import {
+  ACCESS_TOKEN_APP_SECRET,
+  APP_SECRET_EXPIRATION_DATATIME,
+  REFRESH_TOKEN_SECRET,
+  REFRESH_TOKEN_SECRET_EXPIRATION_DATATIME
+} from './constants.ts';
 
-const ACCESS_TOKEN_APP_SECRET = Deno.env.get("ACCESS_TOKEN_APP_SECRET")
-const APP_SECRET_EXPIRATION_DATATIME = Deno.env.get("APP_SECRET_EXPIRATION_DATATIME")
-const REFRESH_TOKEN_SECRET = Deno.env.get("REFRESH_TOKEN_SECRET")
-const REFRESH_TOKEN_SECRET_EXPIRATION_DATATIME = Deno.env.get("REFRESH_TOKEN_SECRET_EXPIRATION_DATATIME")
 
 interface User {
   accounts: any

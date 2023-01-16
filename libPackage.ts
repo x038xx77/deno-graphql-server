@@ -1,5 +1,12 @@
     //@ts-ignore
-    export { serve } from "https://deno.land/std@0.157.0/http/server.ts";
+    export { serve } from "https://deno.land/std@0.172.0/http/mod.ts";
+    import { type Request as typeRequest } from "https://deno.land/std@0.172.0/http/mod.ts";
+    export {typeRequest }
+    import { type Response as typeResponse } from "https://deno.land/x/serve@1.0.5/deps.ts";
+    export { typeResponse }
+
+
+
      //@ts-ignore
     export { Prisma, PrismaClient } from "./generated/client/deno/edge.js";
      //@ts-ignore
@@ -24,6 +31,7 @@
 //@ts-ignore
 import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts";
 export {bcrypt}
+
 
     // export { config } from "https://deno.land/x/dotenv/mod.ts";
 

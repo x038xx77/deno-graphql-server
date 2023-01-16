@@ -7,6 +7,7 @@ const yoga = createYoga({
   context
 });
 
+export const PORT = 4000
 serve(yoga, {
   onListen({ hostname, port }:any) {
     console.log(`Listening on http://${hostname}:${port}/graphql`);
