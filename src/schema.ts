@@ -344,7 +344,7 @@ try{
 
 let valid:any;
         try{
-         valid =  bcrypt.compare(args.input.password, user.password)
+         valid = bcrypt.compare(args.input.password, user.password)
       }catch(err){console.log("Errors: ", err)}
         if (!valid) {
           throw new Error('Invalid password')
@@ -354,7 +354,7 @@ let valid:any;
           jwtToken = await jwtCreate({ alg: "HS512", typ: "JWT" }, { userId: user?.id }, ACCESS_TOKEN_APP_SECRET!);
         } catch (err) { console.log("Err: ", err) }
        
-        return { user, token:jwtToken, jwtToken }
+        return { user, token:jwtToken }
       },
       // End Login
 
