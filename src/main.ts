@@ -5,23 +5,24 @@ import { authContext } from "./context.ts";
 const yoga = createYoga({
   schema: schema,
   context:authContext,
-  cors: {
-    origin: 'https://xn--brilliant-p985h.ml',
-    // origin: '*',
-    // credentials: true,
-    // allowedHeaders: [
-    //   // 'Access-Control-Allow-Credentials',
-    //   // 'Access-Control-Allow-Origin',
-    //   // "Access-Control-Allow-Headers", 
-    //    "Origin, Content-Type, Accept"],
-  //   allowedHeaders: ['sessionId', 'Content-Type', 'Access-Control-Allow-Origin',
-  //   "Origin, X-Requested-With, Content-Type, Accept",
-  //   'authorization'
-  // ],
-  //   exposedHeaders: ['sessionId'],
+  cors:false
+  // cors: {
+  //   origin: 'https://xn--brilliant-p985h.ml',
+  //   // origin: '*',
+  //   // credentials: true,
+  //   // allowedHeaders: [
+  //   //   // 'Access-Control-Allow-Credentials',
+  //   //   // 'Access-Control-Allow-Origin',
+  //   //   // "Access-Control-Allow-Headers", 
+  //   //    "Origin, Content-Type, Accept"],
+  // //   allowedHeaders: ['sessionId', 'Content-Type', 'Access-Control-Allow-Origin',
+  // //   "Origin, X-Requested-With, Content-Type, Accept",
+  // //   'authorization'
+  // // ],
+  // //   exposedHeaders: ['sessionId'],
   
-    methods: ['GET,HEAD,PUT,PATCH,POST,DELETE'],
-  }
+  //   methods: ['GET,HEAD,PUT,PATCH,POST,DELETE'],
+  // }
 });
 
 serve(yoga,{ port: 8000 });
