@@ -9,7 +9,7 @@ const yoga = createYoga({
   cors: {
     origin: 'https://xn--brilliant-p985h.ml',
     credentials: true,
-    allowedHeaders: ['authorization', 'content-type: application/json'],
+    allowedHeaders: ['authorization', 'content-type', 'application/json'],
     methods: ['GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'],  }
 
 });
