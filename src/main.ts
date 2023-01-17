@@ -12,6 +12,7 @@ const yoga = createYoga({
     allowedHeaders: [
       // 'Access-Control-Allow-Credentials',
       'Access-Control-Allow-Origin',
+      "Access-Control-Allow-Headers", 
        "Origin, Content-Type, Accept"],
   //   allowedHeaders: ['sessionId', 'Content-Type', 'Access-Control-Allow-Origin',
   //   "Origin, X-Requested-With, Content-Type, Accept",
