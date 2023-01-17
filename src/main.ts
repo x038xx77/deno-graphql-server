@@ -12,8 +12,8 @@ const yoga = createYoga({
     // credentials: true,
     allowedHeaders: [
     //   // 'Access-Control-Allow-Credentials',
-    // 'Access-Control-Allow-Origin',
-     "Access-Control-Allow-Headers", 
+    'Access-Control-Allow-Origin',
+    //  "Access-Control-Allow-Headers", 
     //    "Origin, Content-Type, Accept"
   ],
   //   allowedHeaders: ['sessionId', 'Content-Type', 'Access-Control-Allow-Origin',
@@ -22,7 +22,7 @@ const yoga = createYoga({
   // ],
   //   exposedHeaders: ['sessionId'],
   
-    methods: ['GET,HEAD,PUT,PATCH,POST,DELETE'],
+    methods: ['GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'],
   }
 });
 
