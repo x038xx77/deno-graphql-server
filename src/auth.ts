@@ -15,7 +15,7 @@ export async function authenticateUser(
   prisma: PrismaClient,
   request: any
 ): Promise<User | null> {
-  const headerToken = request.headers.get('authorization');
+  const headerToken = request.headers?.get('authorization');
  
 
   if (headerToken !== null && headerToken !== undefined) {
