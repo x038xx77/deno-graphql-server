@@ -8,7 +8,11 @@ const yoga = createYoga({
   cors: {
     origin: 'https://xn--brilliant-p985h.ml',
     credentials: true,
-    allowedHeaders: ['X-Custom-Header'],
+    allowedHeaders: [
+      'X-Custom-Header',
+      'Access-Control-Allow-Credentials',
+      'Access-Control-Allow-Origin',
+      'Origin, X-Requested-With, Content-Type, Accept'],
     methods: ['GET','POST', 'OPTIONS']
   }
 });
