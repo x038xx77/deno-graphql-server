@@ -6,7 +6,8 @@ const yoga = createYoga({
   schema: schema,
   context:authContext,
   cors: {
-    origin: 'https://xn--brilliant-p985h.ml',
+    // origin: 'https://xn--brilliant-p985h.ml',
+    origin: '*',
     credentials: true,
     // allowedHeaders: [
     //   'X-Custom-Header',
