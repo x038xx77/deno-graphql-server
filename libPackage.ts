@@ -1,6 +1,9 @@
- 
+
+    export { serve } from 'https://deno.land/std@0.151.0/http/server.ts';
+
     // export { serve } from "https://deno.land/std@0.172.0/http/mod.ts";
-    export { application } from "https://deno.land/x/fastro@v0.60.1/server/mod.ts";
+    // import application from "https://deno.land/x/fastro@v0.60.1/server/mod.ts";
+    // export { application }
 
     // import { type Request as typeRequest } from "https://deno.land/std@0.172.0/http/mod.ts";
     // export {typeRequest }

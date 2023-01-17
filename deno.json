@@ -1,5 +1,10 @@
 {
     "tasks": {
       "dev": "deno run -A --unstable src/main.ts"
+    },
+    "compilerOptions": {
+      "strict": true,
+      "jsx": "react-jsx",
+      "jsxImportSource": "https://esm.sh/react"
     }
   }
