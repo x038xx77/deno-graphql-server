@@ -8,9 +8,10 @@ const yoga = createYoga({
   
   cors: {
     origin: 'https://xn--brilliant-p985h.ml',
-    credentials: true,
+    // credentials: true,
     // allowedHeaders: ['X-Custom-Header'],
     methods: ['GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'],  }
+
 });
 
 serve(yoga, {
