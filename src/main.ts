@@ -13,8 +13,16 @@ const yoga = createYoga({
     methods: ['GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'],  }
 });
 
-serve(yoga,{ port: 8000 });
+serve(yoga, {
+  onListen({ hostname, port }) {
+    console.log(`Listening on http://${hostname}:${port}/graphql`)
+  },
+})
 
+
+//2
+// serve(yoga,{ port: 8000 });
+//3
 // const server_port = 5500;
 
 // function req_handler(req: Request): Response {
