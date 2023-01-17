@@ -5,12 +5,12 @@ import { authContext } from "./context.ts";
 const yoga = createYoga({
   schema: schema,
   context:authContext,
-  
+  cors:false
   // cors: {
   //   mode:'no-cors',
   //   origin: 'https://xn--brilliant-p985h.ml',
   //   credentials: true,
-  //   allowedHeaders: ['authorization', 'content-type', 'application/json'],
+  //   allowedHeaders: ['authorization', 'content-type'],
   //   methods: ['GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'],
   // }
 
