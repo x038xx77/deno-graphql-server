@@ -138,8 +138,8 @@ export const schema = createSchema({
       }
       
       type Vote {
-        count_votes: ID!
         id: ID
+        count_votes: ID!
         is_vote_user: Boolean
         productId: String
         userId: String
@@ -155,7 +155,7 @@ export const schema = createSchema({
         count_votes: ID!
         is_vote_user: Boolean
         productId: String
-        users: [User!]
+        votes: [Vote]
       }
       
       type UserFavoritesProduct {
@@ -246,7 +246,7 @@ export const schema = createSchema({
 
           const result = {
             count_votes: count_votes.length,
-            users: count_votes,
+            votes: count_votes,
             productId: productId,
             is_vote_user: true, //for_disabled_button
           };
@@ -275,10 +275,12 @@ export const schema = createSchema({
 
           const result = {
             count_votes: count_votes.length,
-            users: count_votes,
+            votes: count_votes,
             productId: productId,
             is_vote_user: result_check_is_vote_user,
           };
+
+
           return result;
         }
 
@@ -351,7 +353,7 @@ export const schema = createSchema({
           console.log("Errors: ", err);
         }
         if (!valid) {
-          throw new Error("Invalid password");
+          throw new Error("Invahttp://localhost:5173/lid password");
         }
         let jwtToken: any;
         try {
@@ -440,8 +442,9 @@ export const schema = createSchema({
         });
         if (productExists) {
           throw new Error(`Already voted for product: ${args.input.productId}`);
-        } else {
-          if (context.currentUser !== null) {
+        } 
+
+        if (context.currentUser !== null && !productExists) {
             vote_user_product = await context.prisma.vote.create({
               data: {
                 userId: userId,
@@ -449,15 +452,10 @@ export const schema = createSchema({
                 is_vote_user: true,
               },
             });
-          }
+          
         }
-        const result = {
-          count_votes: vote_user_product.count_votes,
-          is_vote_user: vote_user_product.is_vote_user,
-          productId: vote_user_product.productId,
-          userId: vote_user_product.userId,
-        };
-        return result;
+               
+        return vote_user_product
       },
       // End VOTE
 
