@@ -1,4 +1,4 @@
-import { serve, createYoga } from "../libPackage.ts";
+import { application, createYoga } from "../libPackage.ts";
 import { schema } from "./schema.ts";
 import { authContext } from "./context.ts";
 
@@ -16,11 +16,23 @@ const yoga = createYoga({
 
 });
 
-serve(yoga, {
-  onListen({ hostname, port }) {
-    console.log(`Listening on http://${hostname}:${port}/graphql`)
-  },
-})
+
+const app = application();
+
+app.get("/", () => "Hello world");
+
+console.log("Listening on: http://localhost:8000");
+
+await app.serve();
+
+
+
+//===================================================================
+// serve(yoga, {
+//   onListen({ hostname, port }) {
+//     console.log(`Listening on http://${hostname}:${port}/graphql`)
+//   },
+// })
 
 
 //2

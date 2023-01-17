@@ -1,5 +1,7 @@
  
-    export { serve } from "https://deno.land/std@0.172.0/http/mod.ts";
+    // export { serve } from "https://deno.land/std@0.172.0/http/mod.ts";
+    export { application } from "https://deno.land/x/fastro@v0.60.1/server/mod.ts";
+
     // import { type Request as typeRequest } from "https://deno.land/std@0.172.0/http/mod.ts";
     // export {typeRequest }
     // import { type Response as typeResponse } from "https://deno.land/x/serve@1.0.5/deps.ts";
