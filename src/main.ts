@@ -8,12 +8,14 @@ const yoga = createYoga({
   cors: {
     origin: 'https://xn--brilliant-p985h.ml',
     credentials: true,
-    allowedHeaders: [
-      'X-Custom-Header',
-      'Access-Control-Allow-Credentials',
-      'Access-Control-Allow-Origin',
-      'Origin, X-Requested-With, Content-Type, Accept'],
-    methods: ['GET','POST', 'OPTIONS']
+    // allowedHeaders: [
+    //   'X-Custom-Header',
+    //   'Access-Control-Allow-Credentials',
+    //   'Access-Control-Allow-Origin',
+    //    "Origin, X-Requested-With, Content-Type, Accept"],
+    allowedHeaders: ['sessionId', 'Content-Type'],
+    exposedHeaders: ['sessionId'],
+    methods: ['GET,HEAD,PUT,PATCH,POST,DELETE'],
   }
 });
 
