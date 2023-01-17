@@ -7,8 +7,8 @@ const yoga = createYoga({
   context:authContext,
   
   cors: {
-    // origin: 'https://xn--brilliant-p985h.ml',
-    origin: '*',
+    origin: 'https://xn--brilliant-p985h.ml',
+    // origin: '*',
     // credentials: true,
     allowedHeaders: [
     //   // 'Access-Control-Allow-Credentials',
