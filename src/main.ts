@@ -7,23 +7,10 @@ const yoga = createYoga({
   context:authContext,
   
   cors: {
-    origin: ['*','https://xn--brilliant-p985h.ml/','xn--brilliant-p985h.ml', 'http://xn--brilliant-p985h.ml'],
-    // origin: '*',
+    origin: 'https://xn--brilliant-p985h.ml',
     credentials: true,
-    allowedHeaders: [
-    //   // 'Access-Control-Allow-Credentials',
-    'Access-Control-Allow-Origin'
-    //  "Access-Control-Allow-Headers", 
-    //    "Origin, Content-Type, Accept"
-  ],
-  //   allowedHeaders: ['sessionId', 'Content-Type', 'Access-Control-Allow-Origin',
-  //   "Origin, X-Requested-With, Content-Type, Accept",
-  //   'authorization'
-  // ],
-  //   exposedHeaders: ['sessionId'],
-  
-    methods: ['GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'],
-  }
+    // allowedHeaders: ['X-Custom-Header'],
+    methods: ['GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'],  }
 });
 
 serve(yoga,{ port: 8000 });
