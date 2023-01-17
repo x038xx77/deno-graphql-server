@@ -4,11 +4,8 @@
 // import { ACCESS_TOKEN_APP_SECRET } from './constants.ts'
 // import { prisma } from "./db.ts";
 import { PrismaClient, User } from '../generated/client/deno/edge.ts'
-
 import {  jwtVerify } from '../libPackage.ts'
-
 import { ACCESS_TOKEN_APP_SECRET, APP_SECRET_EXPIRATION_DATATIME } from './constants.ts'
-
 
 
 export async function authenticateUser(
@@ -22,7 +19,7 @@ export async function authenticateUser(
     const token = headerToken.split(' ')[1];
     let tokenPayload: any = { email: "ya@ho.ho" };
     try {
-      tokenPayload = jwtVerify(token, ACCESS_TOKEN_APP_SECRET!, "HS512") as any;
+      tokenPayload = await jwtVerify(token, ACCESS_TOKEN_APP_SECRET!, "HS512") as any;
     } catch { console.log('Invalid token'); }
 
     let userVerify = null;

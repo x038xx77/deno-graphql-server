@@ -22,5 +22,7 @@ deno run -A prisma/seed.ts
 
 deno run --allow-all main.ts
 
+CORST git ---- tdev1 ----
+
 
 

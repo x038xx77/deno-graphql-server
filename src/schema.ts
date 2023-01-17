@@ -13,6 +13,7 @@ export const schema = createSchema({
   typeDefs: /* GraphQL */ `
 
       type Query {
+        me: User!
         users: [User!]
         products: ProductsResponseApi
         messages: [Message!]!
@@ -175,6 +176,13 @@ export const schema = createSchema({
   `,
   resolvers: {
     Query: {
+      me(parent: unknown, args: {}, context: GraphQLContext) {
+        if (context.currentUser === null) {
+          throw new Error('Unauthenticated!')
+        }
+        return context.currentUser
+      },
+    
       async products(parent: unknown, args: {}, context: GraphQLContext) {
         const result = await fetch(
           "https://buildberries.pythonanywhere.com/api/products/?limit=999",
