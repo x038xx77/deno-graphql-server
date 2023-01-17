@@ -454,7 +454,6 @@ export const schema = createSchema({
             });
           
         }
-               
         return vote_user_product
       },
       // End VOTE
