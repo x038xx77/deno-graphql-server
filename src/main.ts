@@ -6,11 +6,14 @@ const yoga = createYoga({
   schema: schema,
   context:authContext,
   
-  cors: {
-    origin: 'https://xn--brilliant-p985h.ml',
-    credentials: true,
-    allowedHeaders: ['authorization', 'content-type', 'application/json'],
-    methods: ['GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'],  }
+  // cors: {
+  //   mode:'no-cors',
+  //   origin: 'https://xn--brilliant-p985h.ml',
+  //   credentials: true,
+  //   allowedHeaders: ['authorization', 'content-type', 'application/json'],
+  //   methods: ['GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'],
+  // }
+
 
 });
 
