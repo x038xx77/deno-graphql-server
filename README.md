@@ -8,8 +8,7 @@ deno run -A --unstable npm:prisma generate --data-prxoxy
 deno run -A --unstable npm:prisma@^4.8 generate --data-proxy
 
 =========================================
-export DENO_INSTALL="/home/bb/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
+export DENO_INSTALL="/home/bb/.deno" && export PATH="$DENO_INSTALL/bin:$PATH"
 =========================================
 deno run --allow-all --unstable npm:prisma@^4.8 generate --data-proxy
 
@@ -24,5 +23,5 @@ deno run --allow-all main.ts
 
 CORST git ---- tdev1 ----
 
-
+deno run  -A --unstable src/main.ts
 
