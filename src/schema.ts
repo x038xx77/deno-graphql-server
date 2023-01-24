@@ -1,6 +1,7 @@
-import { bcrypt, createSchema, jwtCreate } from "../libPackage.ts";
+import { bcrypt, createSchema, jwtCreate, GraphQLError } from "../libPackage.ts";
 import { GraphQLContext } from "./context.ts";
 import { PrismaClient, User } from "../generated/client/deno/edge.ts";
+
 
 import {
   ACCESS_TOKEN_APP_SECRET,
@@ -15,7 +16,7 @@ export const schema = createSchema({
       type Query {
         me: User!
         users: [User!]
-        products: ProductsResponseApi
+        # products: ProductsResponseApi
         messages: [Message!]!
         getFavorite(userId:String!, productId:String): UserFavoritesProduct!
         getCountVote(productId:String, userId:String): VotePayload
@@ -183,19 +184,20 @@ export const schema = createSchema({
         return context.currentUser
       },
     
-      async products(parent: unknown, args: {}, context: GraphQLContext) {
-        const result = await fetch(
-          "https://buildberries.pythonanywhere.com/api/products/?limit=999",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          },
-        ).then((res: any) => res.json());
+      //GetPRODUCTS
+      // async products(parent: unknown, args: {}, context: GraphQLContext) {
+      //   const result = await fetch(
+      //     "https://buildberries.pythonanywhere.com/api/products/?limit=999",
+      //     {
+      //       method: "GET",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //     },
+      //   ).then((res: any) => res.json());
 
-        return result;
-      },
+      //   return result;
+      // },
 
       //start Users
       async users(parent: unknown, args: {}, context: GraphQLContext) {
@@ -343,7 +345,7 @@ export const schema = createSchema({
         });
 
         if (!user) {
-          throw new Error("No such email user found");
+          throw new GraphQLError("No such email user found");
         }
 
         let valid: any;
@@ -353,7 +355,7 @@ export const schema = createSchema({
           console.log("Errors: ", err);
         }
         if (!valid) {
-          throw new Error("Invahttp://localhost:5173/lid password");
+          throw new GraphQLError("Invalid password");
         }
         let jwtToken: any;
         try {

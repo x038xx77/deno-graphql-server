@@ -27,6 +27,8 @@
     export { Prisma, PrismaClient } from "./generated/client/deno/edge.js";
   
     export { createYoga, createSchema } from 'https://esm.sh/graphql-yoga@3.1.1?deps=graphql@16.6.0';
+    export { GraphQLError } from "https://deno.land/x/graphql_deno@v15.0.0/mod.ts";
+
 
      export { Context } from "https://deno.land/x/oak/mod.ts";
 
