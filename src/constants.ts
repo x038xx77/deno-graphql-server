@@ -8,7 +8,7 @@
 //     REFRESH_TOKEN_SECRET_EXPIRATION_DATATIME,
 //  } = config({ safe: true }); //only Debug
 
-DEPLOY FOR DENO
+// DEPLOY FOR DENO
 export const DATABASE_URL = Deno.env.get("DATABASE_URL")
 export const REFRESH_TOKEN_SECRET = Deno.env.get("REFRESH_TOKEN_SECRET")
 export const ACCESS_TOKEN_APP_SECRET = Deno.env.get("ACCESS_TOKEN_APP_SECRET")
