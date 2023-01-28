@@ -40,18 +40,37 @@ export const schema = createSchema({
         email: String
         password: String
         username: String!
+        first_name: String
+        last_name: String
+        phone_user: String
+        trademark: String
+        locale_user: String
+        image_url_user: String
+        auth_is_telegram: Boolean
+        auth_is_yandex: Boolean
+        auth_is_google: Boolean
       }
 
       input UserUpdateInput {
         email: String
         password: String!
         username: String!
+        first_name: String
+        last_name: String
+        phone_user: String
+        trademark: String
+        locale_user: String
+        image_url_user: String
+        auth_is_telegram: Boolean
+        auth_is_yandex: Boolean
+        auth_is_google: Boolean
       }
 
       input UserSelect {
         id: String!
         email: String!
         password: String!
+        
       }
       
       type AuthPayload {
@@ -66,14 +85,20 @@ export const schema = createSchema({
       type User {
         accounts: [Account!]!
         email: String
-        first_name: String!
         id: String
-        last_name: String!
         messages: [Message!]
-        password: String!
-        phone_user: String!
+        password: String
         products: [ProductApi!]
-        username: String!
+        username: String
+        first_name: String
+        last_name: String
+        phone_user: String
+        trademark: String
+        locale_user: String
+        image_url_user: String
+        auth_is_telegram: Boolean
+        auth_is_yandex: Boolean
+        auth_is_google: Boolean
       }
 
       type Message {
@@ -300,7 +325,20 @@ export const schema = createSchema({
       // SignUP
       async signUp(
         parent: unknown,
-        args: { input: { email: string; password: string; username: string } },
+        args: { input: { 
+          email: string; 
+          password: string; 
+          username: string;
+          first_name: string;
+          last_name: string;
+          phone_user: string;
+          trademark: string;
+          locale_user: string;
+          image_url_user: string;
+          auth_is_telegram: boolean
+          auth_is_yandex: boolean
+          auth_is_google: boolean        
+        } },
         context: GraphQLContext,
       ) {
         const checkUniqueUser = await context.prisma.user.findUnique({
@@ -328,7 +366,6 @@ export const schema = createSchema({
         } catch (err) {
           console.log("Err: ", err);
         }
-
        
         return { token: await token, user };
       },

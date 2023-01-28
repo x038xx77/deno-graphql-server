@@ -114,15 +114,15 @@ model User {
   email             String                @unique
   password          String
   username          String?
-  firstName         String?               @map("first_name")
-  lastName          String?               @map("last_name")
-  phoneUser         String?               @map("phone_user")
+  first_name         String?               @map("first_name")
+  last_name          String?               @map("last_name")
+  phone_user         String?               @map("phone_user")
   trademark         String?
-  localeUser        String?               @map("locale_user")
-  imageUrlUser      String?               @map("image_url_user")
-  authIsTelegram    Boolean               @default(false) @map("auth_is_telegram")
-  authIsYandex      Boolean               @default(false) @map("auth_is_yandex")
-  authIsGoogle      Boolean               @default(false) @map("auth_is_google")
+  locale_user        String?               @map("locale_user")
+  image_url_user      String?               @map("image_url_user")
+  auth_is_telegram    Boolean               @default(false) @map("auth_is_telegram")
+  auth_is_yandex      Boolean               @default(false) @map("auth_is_yandex")
+  auth_is_google      Boolean               @default(false) @map("auth_is_google")
   role              String                @default("buyer")
   bio               String?
   createdAt         DateTime              @default(now())

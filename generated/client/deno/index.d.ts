@@ -143,15 +143,15 @@ export type User = {
   email: string
   password: string
   username: string | null
-  firstName: string | null
-  lastName: string | null
-  phoneUser: string | null
+  first_name: string | null
+  last_name: string | null
+  phone_user: string | null
   trademark: string | null
-  localeUser: string | null
-  imageUrlUser: string | null
-  authIsTelegram: boolean
-  authIsYandex: boolean
-  authIsGoogle: boolean
+  locale_user: string | null
+  image_url_user: string | null
+  auth_is_telegram: boolean
+  auth_is_yandex: boolean
+  auth_is_google: boolean
   role: string
   bio: string | null
   createdAt: Date
@@ -12187,15 +12187,15 @@ export namespace Prisma {
     email: string | null
     password: string | null
     username: string | null
-    firstName: string | null
-    lastName: string | null
-    phoneUser: string | null
+    first_name: string | null
+    last_name: string | null
+    phone_user: string | null
     trademark: string | null
-    localeUser: string | null
-    imageUrlUser: string | null
-    authIsTelegram: boolean | null
-    authIsYandex: boolean | null
-    authIsGoogle: boolean | null
+    locale_user: string | null
+    image_url_user: string | null
+    auth_is_telegram: boolean | null
+    auth_is_yandex: boolean | null
+    auth_is_google: boolean | null
     role: string | null
     bio: string | null
     createdAt: Date | null
@@ -12208,15 +12208,15 @@ export namespace Prisma {
     email: string | null
     password: string | null
     username: string | null
-    firstName: string | null
-    lastName: string | null
-    phoneUser: string | null
+    first_name: string | null
+    last_name: string | null
+    phone_user: string | null
     trademark: string | null
-    localeUser: string | null
-    imageUrlUser: string | null
-    authIsTelegram: boolean | null
-    authIsYandex: boolean | null
-    authIsGoogle: boolean | null
+    locale_user: string | null
+    image_url_user: string | null
+    auth_is_telegram: boolean | null
+    auth_is_yandex: boolean | null
+    auth_is_google: boolean | null
     role: string | null
     bio: string | null
     createdAt: Date | null
@@ -12229,15 +12229,15 @@ export namespace Prisma {
     email: number
     password: number
     username: number
-    firstName: number
-    lastName: number
-    phoneUser: number
+    first_name: number
+    last_name: number
+    phone_user: number
     trademark: number
-    localeUser: number
-    imageUrlUser: number
-    authIsTelegram: number
-    authIsYandex: number
-    authIsGoogle: number
+    locale_user: number
+    image_url_user: number
+    auth_is_telegram: number
+    auth_is_yandex: number
+    auth_is_google: number
     role: number
     bio: number
     createdAt: number
@@ -12252,15 +12252,15 @@ export namespace Prisma {
     email?: true
     password?: true
     username?: true
-    firstName?: true
-    lastName?: true
-    phoneUser?: true
+    first_name?: true
+    last_name?: true
+    phone_user?: true
     trademark?: true
-    localeUser?: true
-    imageUrlUser?: true
-    authIsTelegram?: true
-    authIsYandex?: true
-    authIsGoogle?: true
+    locale_user?: true
+    image_url_user?: true
+    auth_is_telegram?: true
+    auth_is_yandex?: true
+    auth_is_google?: true
     role?: true
     bio?: true
     createdAt?: true
@@ -12273,15 +12273,15 @@ export namespace Prisma {
     email?: true
     password?: true
     username?: true
-    firstName?: true
-    lastName?: true
-    phoneUser?: true
+    first_name?: true
+    last_name?: true
+    phone_user?: true
     trademark?: true
-    localeUser?: true
-    imageUrlUser?: true
-    authIsTelegram?: true
-    authIsYandex?: true
-    authIsGoogle?: true
+    locale_user?: true
+    image_url_user?: true
+    auth_is_telegram?: true
+    auth_is_yandex?: true
+    auth_is_google?: true
     role?: true
     bio?: true
     createdAt?: true
@@ -12294,15 +12294,15 @@ export namespace Prisma {
     email?: true
     password?: true
     username?: true
-    firstName?: true
-    lastName?: true
-    phoneUser?: true
+    first_name?: true
+    last_name?: true
+    phone_user?: true
     trademark?: true
-    localeUser?: true
-    imageUrlUser?: true
-    authIsTelegram?: true
-    authIsYandex?: true
-    authIsGoogle?: true
+    locale_user?: true
+    image_url_user?: true
+    auth_is_telegram?: true
+    auth_is_yandex?: true
+    auth_is_google?: true
     role?: true
     bio?: true
     createdAt?: true
@@ -12394,15 +12394,15 @@ export namespace Prisma {
     email: string
     password: string
     username: string | null
-    firstName: string | null
-    lastName: string | null
-    phoneUser: string | null
+    first_name: string | null
+    last_name: string | null
+    phone_user: string | null
     trademark: string | null
-    localeUser: string | null
-    imageUrlUser: string | null
-    authIsTelegram: boolean
-    authIsYandex: boolean
-    authIsGoogle: boolean
+    locale_user: string | null
+    image_url_user: string | null
+    auth_is_telegram: boolean
+    auth_is_yandex: boolean
+    auth_is_google: boolean
     role: string
     bio: string | null
     createdAt: Date
@@ -12432,15 +12432,15 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     username?: boolean
-    firstName?: boolean
-    lastName?: boolean
-    phoneUser?: boolean
+    first_name?: boolean
+    last_name?: boolean
+    phone_user?: boolean
     trademark?: boolean
-    localeUser?: boolean
-    imageUrlUser?: boolean
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: boolean
+    image_url_user?: boolean
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: boolean
     bio?: boolean
     createdAt?: boolean
@@ -25911,15 +25911,15 @@ export namespace Prisma {
     email: 'email',
     password: 'password',
     username: 'username',
-    firstName: 'firstName',
-    lastName: 'lastName',
-    phoneUser: 'phoneUser',
+    first_name: 'first_name',
+    last_name: 'last_name',
+    phone_user: 'phone_user',
     trademark: 'trademark',
-    localeUser: 'localeUser',
-    imageUrlUser: 'imageUrlUser',
-    authIsTelegram: 'authIsTelegram',
-    authIsYandex: 'authIsYandex',
-    authIsGoogle: 'authIsGoogle',
+    locale_user: 'locale_user',
+    image_url_user: 'image_url_user',
+    auth_is_telegram: 'auth_is_telegram',
+    auth_is_yandex: 'auth_is_yandex',
+    auth_is_google: 'auth_is_google',
     role: 'role',
     bio: 'bio',
     createdAt: 'createdAt',
@@ -26477,15 +26477,15 @@ export namespace Prisma {
     email?: StringFilter | string
     password?: StringFilter | string
     username?: StringNullableFilter | string | null
-    firstName?: StringNullableFilter | string | null
-    lastName?: StringNullableFilter | string | null
-    phoneUser?: StringNullableFilter | string | null
+    first_name?: StringNullableFilter | string | null
+    last_name?: StringNullableFilter | string | null
+    phone_user?: StringNullableFilter | string | null
     trademark?: StringNullableFilter | string | null
-    localeUser?: StringNullableFilter | string | null
-    imageUrlUser?: StringNullableFilter | string | null
-    authIsTelegram?: BoolFilter | boolean
-    authIsYandex?: BoolFilter | boolean
-    authIsGoogle?: BoolFilter | boolean
+    locale_user?: StringNullableFilter | string | null
+    image_url_user?: StringNullableFilter | string | null
+    auth_is_telegram?: BoolFilter | boolean
+    auth_is_yandex?: BoolFilter | boolean
+    auth_is_google?: BoolFilter | boolean
     role?: StringFilter | string
     bio?: StringNullableFilter | string | null
     createdAt?: DateTimeFilter | Date | string
@@ -26504,15 +26504,15 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     username?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    phoneUser?: SortOrder
+    first_name?: SortOrder
+    last_name?: SortOrder
+    phone_user?: SortOrder
     trademark?: SortOrder
-    localeUser?: SortOrder
-    imageUrlUser?: SortOrder
-    authIsTelegram?: SortOrder
-    authIsYandex?: SortOrder
-    authIsGoogle?: SortOrder
+    locale_user?: SortOrder
+    image_url_user?: SortOrder
+    auth_is_telegram?: SortOrder
+    auth_is_yandex?: SortOrder
+    auth_is_google?: SortOrder
     role?: SortOrder
     bio?: SortOrder
     createdAt?: SortOrder
@@ -26536,15 +26536,15 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     username?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    phoneUser?: SortOrder
+    first_name?: SortOrder
+    last_name?: SortOrder
+    phone_user?: SortOrder
     trademark?: SortOrder
-    localeUser?: SortOrder
-    imageUrlUser?: SortOrder
-    authIsTelegram?: SortOrder
-    authIsYandex?: SortOrder
-    authIsGoogle?: SortOrder
+    locale_user?: SortOrder
+    image_url_user?: SortOrder
+    auth_is_telegram?: SortOrder
+    auth_is_yandex?: SortOrder
+    auth_is_google?: SortOrder
     role?: SortOrder
     bio?: SortOrder
     createdAt?: SortOrder
@@ -26563,15 +26563,15 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter | string
     password?: StringWithAggregatesFilter | string
     username?: StringNullableWithAggregatesFilter | string | null
-    firstName?: StringNullableWithAggregatesFilter | string | null
-    lastName?: StringNullableWithAggregatesFilter | string | null
-    phoneUser?: StringNullableWithAggregatesFilter | string | null
+    first_name?: StringNullableWithAggregatesFilter | string | null
+    last_name?: StringNullableWithAggregatesFilter | string | null
+    phone_user?: StringNullableWithAggregatesFilter | string | null
     trademark?: StringNullableWithAggregatesFilter | string | null
-    localeUser?: StringNullableWithAggregatesFilter | string | null
-    imageUrlUser?: StringNullableWithAggregatesFilter | string | null
-    authIsTelegram?: BoolWithAggregatesFilter | boolean
-    authIsYandex?: BoolWithAggregatesFilter | boolean
-    authIsGoogle?: BoolWithAggregatesFilter | boolean
+    locale_user?: StringNullableWithAggregatesFilter | string | null
+    image_url_user?: StringNullableWithAggregatesFilter | string | null
+    auth_is_telegram?: BoolWithAggregatesFilter | boolean
+    auth_is_yandex?: BoolWithAggregatesFilter | boolean
+    auth_is_google?: BoolWithAggregatesFilter | boolean
     role?: StringWithAggregatesFilter | string
     bio?: StringNullableWithAggregatesFilter | string | null
     createdAt?: DateTimeWithAggregatesFilter | Date | string
@@ -27806,15 +27806,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -27833,15 +27833,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -27860,15 +27860,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27887,15 +27887,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27914,15 +27914,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -27935,15 +27935,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27956,15 +27956,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -29425,15 +29425,15 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     username?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    phoneUser?: SortOrder
+    first_name?: SortOrder
+    last_name?: SortOrder
+    phone_user?: SortOrder
     trademark?: SortOrder
-    localeUser?: SortOrder
-    imageUrlUser?: SortOrder
-    authIsTelegram?: SortOrder
-    authIsYandex?: SortOrder
-    authIsGoogle?: SortOrder
+    locale_user?: SortOrder
+    image_url_user?: SortOrder
+    auth_is_telegram?: SortOrder
+    auth_is_yandex?: SortOrder
+    auth_is_google?: SortOrder
     role?: SortOrder
     bio?: SortOrder
     createdAt?: SortOrder
@@ -29446,15 +29446,15 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     username?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    phoneUser?: SortOrder
+    first_name?: SortOrder
+    last_name?: SortOrder
+    phone_user?: SortOrder
     trademark?: SortOrder
-    localeUser?: SortOrder
-    imageUrlUser?: SortOrder
-    authIsTelegram?: SortOrder
-    authIsYandex?: SortOrder
-    authIsGoogle?: SortOrder
+    locale_user?: SortOrder
+    image_url_user?: SortOrder
+    auth_is_telegram?: SortOrder
+    auth_is_yandex?: SortOrder
+    auth_is_google?: SortOrder
     role?: SortOrder
     bio?: SortOrder
     createdAt?: SortOrder
@@ -29467,15 +29467,15 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     username?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    phoneUser?: SortOrder
+    first_name?: SortOrder
+    last_name?: SortOrder
+    phone_user?: SortOrder
     trademark?: SortOrder
-    localeUser?: SortOrder
-    imageUrlUser?: SortOrder
-    authIsTelegram?: SortOrder
-    authIsYandex?: SortOrder
-    authIsGoogle?: SortOrder
+    locale_user?: SortOrder
+    image_url_user?: SortOrder
+    auth_is_telegram?: SortOrder
+    auth_is_yandex?: SortOrder
+    auth_is_google?: SortOrder
     role?: SortOrder
     bio?: SortOrder
     createdAt?: SortOrder
@@ -31165,15 +31165,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -31191,15 +31191,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -31227,15 +31227,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31253,15 +31253,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31279,15 +31279,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -31305,15 +31305,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -31341,15 +31341,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31367,15 +31367,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31393,15 +31393,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -31419,15 +31419,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -31455,15 +31455,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31481,15 +31481,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31680,15 +31680,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -31706,15 +31706,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -31782,15 +31782,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31808,15 +31808,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31979,15 +31979,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -32005,15 +32005,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -32041,15 +32041,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32067,15 +32067,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32707,15 +32707,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -32733,15 +32733,15 @@ export namespace Prisma {
     email: string
     password: string
     username?: string | null
-    firstName?: string | null
-    lastName?: string | null
-    phoneUser?: string | null
+    first_name?: string | null
+    last_name?: string | null
+    phone_user?: string | null
     trademark?: string | null
-    localeUser?: string | null
-    imageUrlUser?: string | null
-    authIsTelegram?: boolean
-    authIsYandex?: boolean
-    authIsGoogle?: boolean
+    locale_user?: string | null
+    image_url_user?: string | null
+    auth_is_telegram?: boolean
+    auth_is_yandex?: boolean
+    auth_is_google?: boolean
     role?: string
     bio?: string | null
     createdAt?: Date | string
@@ -32801,15 +32801,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32827,15 +32827,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     username?: NullableStringFieldUpdateOperationsInput | string | null
-    firstName?: NullableStringFieldUpdateOperationsInput | string | null
-    lastName?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneUser?: NullableStringFieldUpdateOperationsInput | string | null
+    first_name?: NullableStringFieldUpdateOperationsInput | string | null
+    last_name?: NullableStringFieldUpdateOperationsInput | string | null
+    phone_user?: NullableStringFieldUpdateOperationsInput | string | null
     trademark?: NullableStringFieldUpdateOperationsInput | string | null
-    localeUser?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrlUser?: NullableStringFieldUpdateOperationsInput | string | null
-    authIsTelegram?: BoolFieldUpdateOperationsInput | boolean
-    authIsYandex?: BoolFieldUpdateOperationsInput | boolean
-    authIsGoogle?: BoolFieldUpdateOperationsInput | boolean
+    locale_user?: NullableStringFieldUpdateOperationsInput | string | null
+    image_url_user?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_is_telegram?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_yandex?: BoolFieldUpdateOperationsInput | boolean
+    auth_is_google?: BoolFieldUpdateOperationsInput | boolean
     role?: StringFieldUpdateOperationsInput | string
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
