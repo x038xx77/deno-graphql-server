@@ -223,6 +223,20 @@ export const schema = createSchema({
 
       //   return result;
       // },
+      //GetKEYS
+      // async keyShop(parent: unknown, args: {}, context: GraphQLContext) {
+      //   const result = await fetch(
+      //     "https://buildberries.pythonanywhere.com/api/products/?limit=999",
+      //     {
+      //       method: "GET",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //     },
+      //   ).then((res: any) => res.json());
+
+      //   return result;
+      // },
 
       //start Users
       async users(parent: unknown, args: {}, context: GraphQLContext) {
