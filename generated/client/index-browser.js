@@ -103,10 +103,31 @@ exports.Prisma.AccountScalarFieldEnum = makeEnum({
   updatedAt: 'updatedAt'
 });
 
+exports.Prisma.AddressInputScalarFieldEnum = makeEnum({
+  id: 'id',
+  company: 'company',
+  name: 'name',
+  line1: 'line1',
+  line2: 'line2',
+  city: 'city',
+  state: 'state',
+  postalCode: 'postalCode',
+  country: 'country'
+});
+
 exports.Prisma.AddressScalarFieldEnum = makeEnum({
   id: 'id',
   zip: 'zip',
-  deliveryId: 'deliveryId'
+  deliveryId: 'deliveryId',
+  shippingId: 'shippingId',
+  billingId: 'billingId',
+  company: 'company',
+  name: 'name',
+  line1: 'line1',
+  line2: 'line2',
+  state: 'state',
+  postalCode: 'postalCode',
+  country: 'country'
 });
 
 exports.Prisma.AuthorProductScalarFieldEnum = makeEnum({
@@ -133,15 +154,55 @@ exports.Prisma.CategoryScalarFieldEnum = makeEnum({
   productId: 'productId'
 });
 
+exports.Prisma.CheckoutInputScalarFieldEnum = makeEnum({
+  id: 'id',
+  cartId: 'cartId',
+  email: 'email',
+  notes: 'notes',
+  shippingInputId: 'shippingInputId',
+  billingInputId: 'billingInputId'
+});
+
 exports.Prisma.CityScalarFieldEnum = makeEnum({
   id: 'id',
   name: 'name',
   addressId: 'addressId'
 });
 
+exports.Prisma.CurrencyScalarFieldEnum = makeEnum({
+  id: 'id',
+  code: 'code',
+  symbol: 'symbol',
+  thousandsSeparator: 'thousandsSeparator',
+  decimalSeparator: 'decimalSeparator',
+  decimalDigits: 'decimalDigits'
+});
+
+exports.Prisma.CustomAttributeScalarFieldEnum = makeEnum({
+  id: 'id',
+  key: 'key',
+  value: 'value'
+});
+
+exports.Prisma.CustomCartAttributeScalarFieldEnum = makeEnum({
+  id: 'id',
+  key: 'key',
+  value: 'value'
+});
+
 exports.Prisma.DeliveryScalarFieldEnum = makeEnum({
   id: 'id',
   title: 'title'
+});
+
+exports.Prisma.JsonNullValueFilter = makeEnum({
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+});
+
+exports.Prisma.JsonNullValueInput = makeEnum({
+  JsonNull: Prisma.JsonNull
 });
 
 exports.Prisma.MessageScalarFieldEnum = makeEnum({
@@ -151,6 +212,26 @@ exports.Prisma.MessageScalarFieldEnum = makeEnum({
   userId: 'userId'
 });
 
+exports.Prisma.MoneyScalarFieldEnum = makeEnum({
+  id: 'id',
+  amount: 'amount',
+  formatted: 'formatted'
+});
+
+exports.Prisma.OrderItemScalarFieldEnum = makeEnum({
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  images: 'images',
+  moneyUnitTotalId: 'moneyUnitTotalId',
+  moneyLineTotalId: 'moneyLineTotalId',
+  quantity: 'quantity',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  metadata: 'metadata'
+});
+
 exports.Prisma.OrderScalarFieldEnum = makeEnum({
   id: 'id',
   order_id: 'order_id',
@@ -158,7 +239,23 @@ exports.Prisma.OrderScalarFieldEnum = makeEnum({
   description: 'description',
   userId: 'userId',
   productId: 'productId',
-  deliveryId: 'deliveryId'
+  deliveryId: 'deliveryId',
+  cartId: 'cartId',
+  email: 'email',
+  orderId: 'orderId',
+  addressShippingId: 'addressShippingId',
+  addressBillingId: 'addressBillingId',
+  moneySubTotalId: 'moneySubTotalId',
+  moneyShippingTotalId: 'moneyShippingTotalId',
+  moneyTaxTotalId: 'moneyTaxTotalId',
+  moneyGrandTotalId: 'moneyGrandTotalId',
+  totalItems: 'totalItems',
+  totalUniqueItems: 'totalUniqueItems',
+  notes: 'notes',
+  metadata: 'metadata',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 });
 
 exports.Prisma.Payments_productbuyersScalarFieldEnum = makeEnum({
@@ -323,7 +420,181 @@ exports.Prisma.VoteScalarFieldEnum = makeEnum({
   productId: 'productId',
   userId: 'userId'
 });
+exports.CartItemType = makeEnum({
+  SKU: 'SKU',
+  TAX: 'TAX',
+  SHIPPING: 'SHIPPING'
+});
 
+exports.CurrencyCode = makeEnum({
+  AED: 'AED',
+  AFN: 'AFN',
+  ALL: 'ALL',
+  AMD: 'AMD',
+  ANG: 'ANG',
+  AOA: 'AOA',
+  ARS: 'ARS',
+  AUD: 'AUD',
+  AWG: 'AWG',
+  AZN: 'AZN',
+  BAM: 'BAM',
+  BBD: 'BBD',
+  BDT: 'BDT',
+  BGN: 'BGN',
+  BHD: 'BHD',
+  BIF: 'BIF',
+  BMD: 'BMD',
+  BND: 'BND',
+  BOB: 'BOB',
+  BRL: 'BRL',
+  BSD: 'BSD',
+  BTC: 'BTC',
+  BTN: 'BTN',
+  BWP: 'BWP',
+  BYR: 'BYR',
+  BZD: 'BZD',
+  CAD: 'CAD',
+  CDF: 'CDF',
+  CHF: 'CHF',
+  CLP: 'CLP',
+  CNY: 'CNY',
+  COP: 'COP',
+  CRC: 'CRC',
+  CUC: 'CUC',
+  CUP: 'CUP',
+  CVE: 'CVE',
+  CZK: 'CZK',
+  DJF: 'DJF',
+  DKK: 'DKK',
+  DOP: 'DOP',
+  DZD: 'DZD',
+  EGP: 'EGP',
+  ERN: 'ERN',
+  ETB: 'ETB',
+  EUR: 'EUR',
+  FJD: 'FJD',
+  FKP: 'FKP',
+  GBP: 'GBP',
+  GEL: 'GEL',
+  GHS: 'GHS',
+  GIP: 'GIP',
+  GMD: 'GMD',
+  GNF: 'GNF',
+  GTQ: 'GTQ',
+  GYD: 'GYD',
+  HKD: 'HKD',
+  HNL: 'HNL',
+  HRK: 'HRK',
+  HTG: 'HTG',
+  HUF: 'HUF',
+  IDR: 'IDR',
+  ILS: 'ILS',
+  INR: 'INR',
+  IQD: 'IQD',
+  IRR: 'IRR',
+  ISK: 'ISK',
+  JMD: 'JMD',
+  JOD: 'JOD',
+  JPY: 'JPY',
+  KES: 'KES',
+  KGS: 'KGS',
+  KHR: 'KHR',
+  KMF: 'KMF',
+  KPW: 'KPW',
+  KRW: 'KRW',
+  KWD: 'KWD',
+  KYD: 'KYD',
+  KZT: 'KZT',
+  LAK: 'LAK',
+  LBP: 'LBP',
+  LKR: 'LKR',
+  LRD: 'LRD',
+  LSL: 'LSL',
+  LYD: 'LYD',
+  MAD: 'MAD',
+  MDL: 'MDL',
+  MGA: 'MGA',
+  MKD: 'MKD',
+  MMK: 'MMK',
+  MNT: 'MNT',
+  MOP: 'MOP',
+  MRO: 'MRO',
+  MTL: 'MTL',
+  MUR: 'MUR',
+  MVR: 'MVR',
+  MWK: 'MWK',
+  MXN: 'MXN',
+  MYR: 'MYR',
+  MZN: 'MZN',
+  NAD: 'NAD',
+  NGN: 'NGN',
+  NIO: 'NIO',
+  NOK: 'NOK',
+  NPR: 'NPR',
+  NZD: 'NZD',
+  OMR: 'OMR',
+  PAB: 'PAB',
+  PEN: 'PEN',
+  PGK: 'PGK',
+  PHP: 'PHP',
+  PKR: 'PKR',
+  PLN: 'PLN',
+  PYG: 'PYG',
+  QAR: 'QAR',
+  RON: 'RON',
+  RSD: 'RSD',
+  RUB: 'RUB',
+  RWF: 'RWF',
+  SAR: 'SAR',
+  SBD: 'SBD',
+  SCR: 'SCR',
+  SDD: 'SDD',
+  SDG: 'SDG',
+  SEK: 'SEK',
+  SGD: 'SGD',
+  SHP: 'SHP',
+  SLL: 'SLL',
+  SOS: 'SOS',
+  SRD: 'SRD',
+  STD: 'STD',
+  SVC: 'SVC',
+  SYP: 'SYP',
+  SZL: 'SZL',
+  THB: 'THB',
+  TJS: 'TJS',
+  TMT: 'TMT',
+  TND: 'TND',
+  TOP: 'TOP',
+  TRY: 'TRY',
+  TTD: 'TTD',
+  TVD: 'TVD',
+  TWD: 'TWD',
+  TZS: 'TZS',
+  UAH: 'UAH',
+  UGX: 'UGX',
+  USD: 'USD',
+  UYU: 'UYU',
+  UZS: 'UZS',
+  VEB: 'VEB',
+  VEF: 'VEF',
+  VND: 'VND',
+  VUV: 'VUV',
+  WST: 'WST',
+  XAF: 'XAF',
+  XCD: 'XCD',
+  XBT: 'XBT',
+  XOF: 'XOF',
+  XPF: 'XPF',
+  YER: 'YER',
+  ZAR: 'ZAR',
+  ZMW: 'ZMW',
+  WON: 'WON'
+});
+
+exports.OrderStatus = makeEnum({
+  UNPAID: 'UNPAID',
+  PAID: 'PAID'
+});
 
 exports.Prisma.ModelName = makeEnum({
   Message: 'Message',
@@ -339,7 +610,6 @@ exports.Prisma.ModelName = makeEnum({
   User: 'User',
   ProductsProduct: 'ProductsProduct',
   ProductsProductResult: 'ProductsProductResult',
-  Order: 'Order',
   products_product_category: 'products_product_category',
   products_tag: 'products_tag',
   products_product_tags: 'products_product_tags',
@@ -348,7 +618,15 @@ exports.Prisma.ModelName = makeEnum({
   AuthorProduct: 'AuthorProduct',
   Tags: 'Tags',
   UserFavoritesProduct: 'UserFavoritesProduct',
-  Vote: 'Vote'
+  Vote: 'Vote',
+  Money: 'Money',
+  Currency: 'Currency',
+  Order: 'Order',
+  CheckoutInput: 'CheckoutInput',
+  OrderItem: 'OrderItem',
+  AddressInput: 'AddressInput',
+  CustomAttribute: 'CustomAttribute',
+  CustomCartAttribute: 'CustomCartAttribute'
 });
 
 /**

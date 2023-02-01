@@ -1,4 +1,9 @@
 
+    // Stripe
+    export { serveListener } from "https://deno.land/std@0.116.0/http/server.ts";
+    import Stripe from "https://esm.sh/stripe?target=deno";
+    export {Stripe}
+    
     // 1
     // export { serve } from 'https://deno.land/std@0.151.0/http/server.ts';
     // 2
@@ -25,10 +30,14 @@
 
 
     export { Prisma, PrismaClient } from "./generated/client/deno/edge.js";
+
   
     export { createYoga, createSchema } from 'https://esm.sh/graphql-yoga@3.1.1?deps=graphql@16.6.0';
     export { GraphQLError } from "https://deno.land/x/graphql_deno@v15.0.0/mod.ts";
 
+    export { GraphQLScalarType } from "https://deno.land/x/graphql_deno@v15.0.0/mod.ts";
+
+    export { gql } from 'https://deno.land/x/graphql_tag@0.0.1/mod.ts'
 
      export { Context } from "https://deno.land/x/oak/mod.ts";
 

@@ -1,4 +1,4 @@
-import { bcrypt, createSchema, jwtCreate, GraphQLError } from "../libPackage.ts";
+import { bcrypt, createSchema, jwtCreate, GraphQLError, GraphQLScalarType, gql } from "../libPackage.ts";
 import { GraphQLContext } from "./context.ts";
 import { PrismaClient, User } from "../generated/client/deno/edge.ts";
 
@@ -11,7 +11,9 @@ import {
 } from "./constants.ts";
 
 export const schema = createSchema({
-  typeDefs: /* GraphQL */ `
+  typeDefs: /* GraphQL */ gql`
+scalar JSON
+scalar Date
 
       type Query {
         me: User!
@@ -28,7 +30,275 @@ export const schema = createSchema({
         addMessage(email: String!, password: String!, body: String!) : AuthPayload
         updateFavoriteProduct(input: FavoriteInput) : FavoritePayload
         updateVote(input: VoteInput) : VotePayload
+        checkout(input: CheckoutInput!): Order!
                       
+      }
+      
+      type Money {
+        amount: Int
+        currency: Currency!
+        formatted: String!
+      }
+
+      type Currency {
+        code: CurrencyCode
+        symbol: String
+        thousandsSeparator: String
+        decimalSeparator: String
+        decimalDigits: Int
+      }
+
+      type Order {
+        id: ID!
+        cartId: ID!
+        email: String!
+        shipping: Address!
+        billing: Address!
+        items: [OrderItem!]!
+        subTotal: Money!
+        shippingTotal: Money!
+        taxTotal: Money!
+        grandTotal: Money!
+        totalItems: Int!
+        totalUniqueItems: Int!
+        notes: String
+        attributes: [CustomAttribute!]!
+        metadata: JSON
+        status: OrderStatus!
+        createdAt: Date!
+        updatedAt: Date!
+      }
+
+      enum OrderStatus {
+        UNPAID
+        PAID
+      }
+
+      input CheckoutInput {
+        cartId:	ID!
+        email:	String
+        notes:	String
+        shipping:	AddressInput
+        billing:	AddressInput
+      }
+
+      type Address {
+        company: String
+        name: String!
+        line1: String!
+        line2: String
+        city: String!
+        state: String
+        postalCode: String!
+        country: String!
+      }
+
+      type OrderItem {
+        id: ID!
+        name: String
+        description: String
+        type: CartItemType!
+        images: [String]
+        unitTotal: Money!
+        lineTotal: Money!
+        quantity: Int!
+        createdAt: Date!
+        updatedAt: Date!
+        attributes: [CustomCartAttribute!]!
+        metadata: JSON
+      }
+
+      enum CartItemType {
+        SKU
+        TAX
+        SHIPPING
+      }
+
+      input AddressInput {
+        company:	String
+        name:	String!	
+        line1:	String!	
+        line2:	String	
+        city:	String!	
+        state:	String	
+        postalCode:	String!	
+        country:	String!
+      }
+       
+      
+      type CustomAttribute {
+        key: String!
+        value: String
+      }
+
+      type CustomCartAttribute {
+        key: String!
+        value: String
+      }
+
+      enum CurrencyCode {
+        AED
+        AFN
+        ALL
+        AMD
+        ANG
+        AOA
+        ARS
+        AUD
+        AWG
+        AZN
+        BAM
+        BBD
+        BDT
+        BGN
+        BHD
+        BIF
+        BMD
+        BND
+        BOB
+        BRL
+        BSD
+        BTC
+        BTN
+        BWP
+        BYR
+        BZD
+        CAD
+        CDF
+        CHF
+        CLP
+        CNY
+        COP
+        CRC
+        CUC
+        CUP
+        CVE
+        CZK
+        DJF
+        DKK
+        DOP
+        DZD
+        EGP
+        ERN
+        ETB
+        EUR
+        FJD
+        FKP
+        GBP
+        GEL
+        GHS
+        GIP
+        GMD
+        GNF
+        GTQ
+        GYD
+        HKD
+        HNL
+        HRK
+        HTG
+        HUF
+        IDR
+        ILS
+        INR
+        IQD
+        IRR
+        ISK
+        JMD
+        JOD
+        JPY
+        KES
+        KGS
+        KHR
+        KMF
+        KPW
+        KRW
+        KWD
+        KYD
+        KZT
+        LAK
+        LBP
+        LKR
+        LRD
+        LSL
+        LYD
+        MAD
+        MDL
+        MGA
+        MKD
+        MMK
+        MNT
+        MOP
+        MRO
+        MTL
+        MUR
+        MVR
+        MWK
+        MXN
+        MYR
+        MZN
+        NAD
+        NGN
+        NIO
+        NOK
+        NPR
+        NZD
+        OMR
+        PAB
+        PEN
+        PGK
+        PHP
+        PKR
+        PLN
+        PYG
+        QAR
+        RON
+        RSD
+        RUB
+        RWF
+        SAR
+        SBD
+        SCR
+        SDD
+        SDG
+        SEK
+        SGD
+        SHP
+        SLL
+        SOS
+        SRD
+        STD
+        SVC
+        SYP
+        SZL
+        THB
+        TJS
+        TMT
+        TND
+        TOP
+        TRY
+        TTD
+        TVD
+        TWD
+        TZS
+        UAH
+        UGX
+        USD
+        UYU
+        UZS
+        VEB
+        VEF
+        VND
+        VUV
+        WST
+        XAF
+        XCD
+        XBT
+        XOF
+        XPF
+        YER
+        ZAR
+        ZMW
+        WON
       }
 
       input UserLoginInput {
@@ -208,6 +478,8 @@ export const schema = createSchema({
         }
         return context.currentUser
       },
+     
+
     
       //GetPRODUCTS
       // async products(parent: unknown, args: {}, context: GraphQLContext) {
@@ -336,6 +608,19 @@ export const schema = createSchema({
     },
 
     Mutation: {
+
+ // Stripe createOrder
+
+ async checkout(parent: unknown, args: {}, context: GraphQLContext){
+  
+  // const charge = await stripe.charges.create({
+  //   amount,
+  //   currency: 'USD',
+  //   source: args.token
+  // });
+ },
+
+
       // SignUP
       async signUp(
         parent: unknown,

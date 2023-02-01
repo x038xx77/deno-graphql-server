@@ -14,14 +14,15 @@ deno run --allow-all --unstable npm:prisma@^4.8 generate --data-proxy
 
 deno cache deps.ts
 
-deno run --allow-all --allow-env --unstable npm:prisma@^4.8 migrate dev --name init
-
+# DATABASE_URL="postgresql
+deno run --allow-all --allow-env --unstable npm:prisma@^4.8 migrate dev --name init 
+# ????
 deno run -A prisma/seed.ts
 
-
+# DATABASE_URL="prisma://
 deno run --allow-all main.ts
 
 CORST git ---- tdev1 ----
-
+# RUN
 deno run  -A --unstable src/main.ts
 

@@ -18,18 +18,18 @@ model Message {
 }
 
 model Account {
-  id                 Int      @id @default(autoincrement())
-  compoundId         String   @unique @map("compound_id")
-  userId             String   @map("profile_id")
-  providerType       String   @map("provider_type")
-  providerId         String   @map("provider_id")
-  providerAccountId  String   @map("provider_account_id")
+  id                 Int       @id @default(autoincrement())
+  compoundId         String    @unique @map("compound_id")
+  userId             String    @map("profile_id")
+  providerType       String    @map("provider_type")
+  providerId         String    @map("provider_id")
+  providerAccountId  String    @map("provider_account_id")
   refreshToken       String?   @map("refresh_token")
   accessToken        String?   @map("access_token")
   accessTokenExpires DateTime? @map("access_token_expires")
-  createdAt          DateTime @default(now()) @map("created_at")
-  updatedAt          DateTime @default(now()) @map("updated_at")
-  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt          DateTime  @default(now()) @map("created_at")
+  updatedAt          DateTime  @default(now()) @map("updated_at")
+  user               User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([providerId, providerAccountId])
   @@map("accounts")
@@ -59,8 +59,20 @@ model Address {
   id         Int       @id @default(autoincrement())
   zip        Int
   deliveryId Int?
+  shippingId Int
+  billingId  Int
   Delivery   Delivery? @relation(fields: [deliveryId], references: [id])
+  company    String
+  name       String
+  line1      String
+  line2      String?
   city       City[]
+  state      String?
+  postalCode String
+  country    String
+  Shipping   Order[]   @relation("Shipping")
+  Billing    Order[]   @relation("Billing")
+  Order      Order[]
 }
 
 model Category {
@@ -114,15 +126,15 @@ model User {
   email             String                @unique
   password          String
   username          String?
-  first_name         String?               @map("first_name")
-  last_name          String?               @map("last_name")
-  phone_user         String?               @map("phone_user")
+  first_name        String?               @map("first_name")
+  last_name         String?               @map("last_name")
+  phone_user        String?               @map("phone_user")
   trademark         String?
-  locale_user        String?               @map("locale_user")
-  image_url_user      String?               @map("image_url_user")
-  auth_is_telegram    Boolean               @default(false) @map("auth_is_telegram")
-  auth_is_yandex      Boolean               @default(false) @map("auth_is_yandex")
-  auth_is_google      Boolean               @default(false) @map("auth_is_google")
+  locale_user       String?               @map("locale_user")
+  image_url_user    String?               @map("image_url_user")
+  auth_is_telegram  Boolean               @default(false) @map("auth_is_telegram")
+  auth_is_yandex    Boolean               @default(false) @map("auth_is_yandex")
+  auth_is_google    Boolean               @default(false) @map("auth_is_google")
   role              String                @default("buyer")
   bio               String?
   createdAt         DateTime              @default(now())
@@ -158,19 +170,6 @@ model ProductsProductResult {
   authorProductId   String?
   productsProductId String?
   productsProduct   ProductsProduct[]
-}
-
-model Order {
-  id           Int       @id @default(autoincrement())
-  order_id     String    @default(uuid())
-  purchaseDate DateTime  @default(now())
-  description  String
-  userId       String    @map("user_id")
-  productId    String
-  deliveryId   Int?
-  Delivery     Delivery? @relation(fields: [deliveryId], references: [id])
-  products     Product[]
-  customer     User?     @relation(fields: [userId], references: [id])
 }
 
 model products_product_category {
@@ -262,4 +261,298 @@ model Vote {
   userId       String?
 
   @@unique([userId, productId])
+}
+
+model Money {
+  id            Int         @id @default(autoincrement())
+  amount        Int
+  currency      Currency[]
+  formatted     String
+  SubTotal      Order[]     @relation("SubTotal")
+  ShippingTotal Order[]     @relation("ShippingTotal")
+  TaxTotal      Order[]     @relation("TaxTotal")
+  GrandTotal    Order[]     @relation("GrandTotal")
+  LineTotal     OrderItem[] @relation("LineTotal")
+  UnitTotal     OrderItem[] @relation("UnitTotal")
+}
+
+model Currency {
+  id                 Int          @id @default(autoincrement())
+  code               CurrencyCode
+  symbol             String
+  thousandsSeparator String
+  decimalSeparator   String
+  decimalDigits      Int
+  Money              Money[]
+}
+
+model Order {
+  id                   Int               @id @default(autoincrement())
+  order_id             String            @default(uuid())
+  purchaseDate         DateTime          @default(now())
+  description          String
+  userId               String            @map("user_id")
+  productId            String
+  deliveryId           Int?
+  Delivery             Delivery?         @relation(fields: [deliveryId], references: [id])
+  products             Product[]
+  customer             User?             @relation(fields: [userId], references: [id])
+  cartId               String
+  email                String
+  orderId              Int
+  addressShippingId    Int
+  addressBillingId     Int
+  shipping             Address           @relation("Shipping", fields: [addressShippingId], references: [id])
+  billing              Address           @relation("Billing", fields: [addressBillingId], references: [id])
+  items                OrderItem[]
+  moneySubTotalId      Int
+  moneyShippingTotalId Int
+  moneyTaxTotalId      Int
+  moneyGrandTotalId    Int
+  subTotal             Money             @relation("SubTotal", fields: [moneySubTotalId], references: [id])
+  shippingTotal        Money             @relation("ShippingTotal", fields: [moneyShippingTotalId], references: [id])
+  taxTotal             Money             @relation("TaxTotal", fields: [moneyTaxTotalId], references: [id])
+  grandTotal           Money             @relation("GrandTotal", fields: [moneyGrandTotalId], references: [id])
+  totalItems           Int
+  totalUniqueItems     Int
+  notes                String
+  attributes           CustomAttribute[]
+  metadata             Json
+  status               OrderStatus
+  createdAt            DateTime
+  updatedAt            DateTime
+  address              Address[]
+}
+
+enum OrderStatus {
+  UNPAID
+  PAID
+}
+
+model CheckoutInput {
+  id              Int           @id @default(autoincrement())
+  cartId          Int
+  email           String
+  notes           String
+  shippingInputId Int
+  billingInputId  Int
+  shipping        AddressInput  @relation("ShippingInput", fields: [shippingInputId], references: [id])
+  billing         AddressInput? @relation("BillingInput", fields: [billingInputId], references: [id])
+}
+
+model OrderItem {
+  id               Int                   @id @default(autoincrement())
+  name             String?
+  description      String?
+  type             CartItemType
+  images           String[]
+  moneyUnitTotalId Int
+  moneyLineTotalId Int
+  unitTotal        Money                 @relation("UnitTotal", fields: [moneyUnitTotalId], references: [id])
+  lineTotal        Money                 @relation("LineTotal", fields: [moneyLineTotalId], references: [id])
+  quantity         Int
+  createdAt        DateTime
+  updatedAt        DateTime
+  attributes       CustomCartAttribute[]
+  metadata         Json
+  Order            Order[]
+}
+
+enum CartItemType {
+  SKU
+  TAX
+  SHIPPING
+}
+
+model AddressInput {
+  id            Int             @id @default(autoincrement())
+  company       String?
+  name          String
+  line1         String
+  line2         String?
+  city          String
+  state         String?
+  postalCode    String
+  country       String
+  ShippingInput CheckoutInput[] @relation("ShippingInput")
+  BillingInput  CheckoutInput[] @relation("BillingInput")
+}
+
+model CustomAttribute {
+  id         Int     @id @default(autoincrement())
+  key        String
+  value      String?
+  attributes Order[]
+}
+
+model CustomCartAttribute {
+  id         Int         @id @default(autoincrement())
+  key        String
+  value      String?
+  attributes OrderItem[]
+}
+
+enum CurrencyCode {
+  AED
+  AFN
+  ALL
+  AMD
+  ANG
+  AOA
+  ARS
+  AUD
+  AWG
+  AZN
+  BAM
+  BBD
+  BDT
+  BGN
+  BHD
+  BIF
+  BMD
+  BND
+  BOB
+  BRL
+  BSD
+  BTC
+  BTN
+  BWP
+  BYR
+  BZD
+  CAD
+  CDF
+  CHF
+  CLP
+  CNY
+  COP
+  CRC
+  CUC
+  CUP
+  CVE
+  CZK
+  DJF
+  DKK
+  DOP
+  DZD
+  EGP
+  ERN
+  ETB
+  EUR
+  FJD
+  FKP
+  GBP
+  GEL
+  GHS
+  GIP
+  GMD
+  GNF
+  GTQ
+  GYD
+  HKD
+  HNL
+  HRK
+  HTG
+  HUF
+  IDR
+  ILS
+  INR
+  IQD
+  IRR
+  ISK
+  JMD
+  JOD
+  JPY
+  KES
+  KGS
+  KHR
+  KMF
+  KPW
+  KRW
+  KWD
+  KYD
+  KZT
+  LAK
+  LBP
+  LKR
+  LRD
+  LSL
+  LYD
+  MAD
+  MDL
+  MGA
+  MKD
+  MMK
+  MNT
+  MOP
+  MRO
+  MTL
+  MUR
+  MVR
+  MWK
+  MXN
+  MYR
+  MZN
+  NAD
+  NGN
+  NIO
+  NOK
+  NPR
+  NZD
+  OMR
+  PAB
+  PEN
+  PGK
+  PHP
+  PKR
+  PLN
+  PYG
+  QAR
+  RON
+  RSD
+  RUB
+  RWF
+  SAR
+  SBD
+  SCR
+  SDD
+  SDG
+  SEK
+  SGD
+  SHP
+  SLL
+  SOS
+  SRD
+  STD
+  SVC
+  SYP
+  SZL
+  THB
+  TJS
+  TMT
+  TND
+  TOP
+  TRY
+  TTD
+  TVD
+  TWD
+  TZS
+  UAH
+  UGX
+  USD
+  UYU
+  UZS
+  VEB
+  VEF
+  VND
+  VUV
+  WST
+  XAF
+  XCD
+  XBT
+  XOF
+  XPF
+  YER
+  ZAR
+  ZMW
+  WON
 }
