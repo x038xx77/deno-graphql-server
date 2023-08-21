@@ -1,4 +1,6 @@
-# GraphQL API сервер
+# GraphQL API сервер + AUTH
+
+## Стек Node.js, GraphQL, Apollo GraphQL, PRISMA, PoostQresQL
 
 
 Команда запускает выполнение кода с использованием Deno.
